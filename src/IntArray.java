@@ -92,6 +92,19 @@ public class IntArray {
 	 *            Value to add
 	 */
 	public void prepend(int x) {
-		// TODO Remove this comment and implement according to the handout.
+		if (length >= a.length) {
+			// Create new array of double the length.
+			int[] b = new int[a.length * 2];
+			// Copy the elements of a into their corresponding indexes of b.
+			for (int i = 0; i < a.length; i++) {
+				b[i+1] = a[i];
+			}
+			// Reassign a reference to b.
+			a = b;
+		}
+		// Place x at the end of the IntArray
+		a[0] = x;
+		// Increase length by 1
+		length = length + 1;
 	}
 }
