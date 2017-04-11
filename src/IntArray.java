@@ -6,8 +6,8 @@
  *
  */
 public class IntArray {
-	private int[] a;
-	private int length;
+	public int[] a;
+	public int length;
 
 	/**
 	 * Create a new empty IntArray.
@@ -97,13 +97,13 @@ public class IntArray {
 			int[] b = new int[a.length * 2];
 			// Copy the elements of a into their corresponding indexes of b.
 			for (int i = 0; i < a.length; i++) {
-				b[i+1] = a[i];
+				b[i+a.length] = a[i];
 			}
 			// Reassign a reference to b.
 			a = b;
 		}
 		// Place x at the end of the IntArray
-		a[0] = x;
+		a[a.length - length - 1] = x;
 		// Increase length by 1
 		length = length + 1;
 	}

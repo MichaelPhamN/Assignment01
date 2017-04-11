@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class IntArrayTest {
 
@@ -29,11 +30,14 @@ public class IntArrayTest {
 
 			System.out.println("Initial functionality looks OK. Now testing prepend with a single value.");
 			a.prepend(10);
+			
 			score += 10;
 			if (a.size() != 11) {
 				throw new RuntimeException(
 						"Size should be 11 after adding 10 things and prepending 1 but instead it's " + a.size());
 			}
+			System.out.println(Arrays.toString(a.a));
+			System.exit(0);
 			score += 10;
 			for (int i = 0; i < a.size(); i++) {
 				if (a.get(i) != i + 10) {
