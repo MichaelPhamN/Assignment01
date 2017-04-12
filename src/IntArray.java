@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * An ArrayList-like class which implements a variable length array that holds
  * int values.
@@ -92,18 +94,23 @@ public class IntArray {
 	 *            Value to add
 	 */
 	public void prepend(int x) {
-		if (length >= a.length) {
+//		if (length <= a.length) {
 			// Create new array of double the length.
-			int[] b = new int[a.length * 2];
+			int[] b = new int[length +1];
+			
 			// Copy the elements of a into their corresponding indexes of b.
-			for (int i = 0; i < a.length; i++) {
-				b[i+a.length] = a[i];
+			for (int i = 0; i < length; i++) {				
+				b[i+1] = a[i];
 			}
+//			System.out.println(Arrays.toString(a));
 			// Reassign a reference to b.
-			a = b;
-		}
+			a = b;			
+//		}
+		
+		
 		// Place x at the end of the IntArray
-		a[a.length - length - 1] = x;
+		a[0] = x;
+		
 		// Increase length by 1
 		length = length + 1;
 	}

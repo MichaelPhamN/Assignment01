@@ -29,15 +29,13 @@ public class IntArrayTest {
 			}
 
 			System.out.println("Initial functionality looks OK. Now testing prepend with a single value.");
-			a.prepend(10);
-			
+			a.prepend(10);			
 			score += 10;
 			if (a.size() != 11) {
 				throw new RuntimeException(
 						"Size should be 11 after adding 10 things and prepending 1 but instead it's " + a.size());
 			}
-			System.out.println(Arrays.toString(a.a));
-			System.exit(0);
+			
 			score += 10;
 			for (int i = 0; i < a.size(); i++) {
 				if (a.get(i) != i + 10) {
@@ -65,18 +63,21 @@ public class IntArrayTest {
 					a.add((i + 1) / 2 + 20);
 				}
 			}
+			
 			for (int i = 0; i < a.size(); i++) {
 				if (a.get(i) != -500 + i) {
 					throw new RuntimeException(
 							"Expected a.get(" + i + ") == " + (-500 + i) + " instead was " + a.get(i));
 				}
-			}
+			}			
+			
 			score += 10;
 			System.out.println("OK. Now running a speed test prepending and adding a million values.");
 			long start = System.currentTimeMillis();
 			for (int i = 0; i < 1000000; i++) {
 				a.prepend(-501 - i);
 			}
+			
 			for (int i = 0; i < a.size(); i++) {
 				if (a.get(i) != -1000500 + i) {
 					throw new RuntimeException(
