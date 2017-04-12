@@ -10,12 +10,14 @@ import java.util.Arrays;
 public class IntArray {
 	public int[] a;
 	public int length;
+	public int index;
 
 	/**
 	 * Create a new empty IntArray.
 	 */
 	public IntArray() {
 		length = 0;
+		index = 0;
 		a = new int[8];
 	}
 
@@ -32,7 +34,7 @@ public class IntArray {
 		if (i < 0 || i >= length) {
 			throw new ArrayIndexOutOfBoundsException(i);
 		}
-		return a[i];
+		return a[index + i];
 	}
 
 	/**
@@ -58,7 +60,7 @@ public class IntArray {
 		if (i < 0 || i >= length) {
 			throw new ArrayIndexOutOfBoundsException(i);
 		}
-		a[i] = x;
+		a[i + index] = x;
 	}
 
 	/**
@@ -69,12 +71,13 @@ public class IntArray {
 	 *            Value to add
 	 */
 	public void add(int x) {
+		
 		if (length >= a.length) {
 			// Create new array of double the length.
 			int[] b = new int[a.length * 2];
 			// Copy the elements of a into their corresponding indexes of b.
 			for (int i = 0; i < a.length; i++) {
-				b[i] = a[i];
+				b[index + i] = a[i];
 			}
 			// Reassign a reference to b.
 			a = b;
@@ -82,7 +85,7 @@ public class IntArray {
 		// Place x at the end of the IntArray
 		a[length] = x;
 		// Increase length by 1
-		length = length + 1;
+		length = length + 1;		
 	}
 
 	/**
@@ -94,22 +97,25 @@ public class IntArray {
 	 *            Value to add
 	 */
 	public void prepend(int x) {
-//		if (length <= a.length) {
+		if (index <= 0) {
 			// Create new array of double the length.
-			int[] b = new int[length +1];
+			int[] b = new int[length*2];
+			index = length/2;
 			
 			// Copy the elements of a into their corresponding indexes of b.
 			for (int i = 0; i < length; i++) {				
-				b[i+1] = a[i];
+				b[i+ index] = a[i];
 			}
-//			System.out.println(Arrays.toString(a));
-			// Reassign a reference to b.
+
 			a = b;			
-//		}
+		}
+		
+		//decrease index by 1
+		index = index - 1;
+		a[index] = x;
+//		System.out.println(Arrays.toString(a));
 		
 		
-		// Place x at the end of the IntArray
-		a[0] = x;
 		
 		// Increase length by 1
 		length = length + 1;
