@@ -83,7 +83,7 @@ public class IntArray {
 			a = b;
 		}
 		// Place x at the end of the IntArray
-		a[length] = x;
+		a[index + length] = x;
 		// Increase length by 1
 		length = length + 1;		
 	}
