@@ -1,4 +1,3 @@
-import java.util.Arrays;
 
 public class IntArrayTest {
 
@@ -13,7 +12,6 @@ public class IntArrayTest {
 					throw new RuntimeException("After adding " + (i + 1) + " I couldn't get it!");
 				}
 			}
-			
 			if (a.size() != 10) {
 				throw new RuntimeException("Size should be 10 after adding 10 things");
 			}
@@ -28,16 +26,14 @@ public class IntArrayTest {
 							+ (i + 1 + 10) + " but saw " + a.get(i) + "!");
 				}
 			}
-			
+
 			System.out.println("Initial functionality looks OK. Now testing prepend with a single value.");
-			a.prepend(10);	
-			
+			a.prepend(10);
 			score += 10;
 			if (a.size() != 11) {
 				throw new RuntimeException(
 						"Size should be 11 after adding 10 things and prepending 1 but instead it's " + a.size());
 			}
-			
 			score += 10;
 			for (int i = 0; i < a.size(); i++) {
 				if (a.get(i) != i + 10) {
@@ -56,35 +52,6 @@ public class IntArrayTest {
 			if (a.size() != 21) {
 				throw new RuntimeException("Size should be 21, instead I got " + a.size());
 			}
-//			System.out.println(a.index);
-//			System.out.println(a.length);		
-//			System.out.println(a.a.length);		
-//			System.out.println(Arrays.toString(a.a));
-//			a.prepend(-1);
-//			System.out.println(a.index);
-//			System.out.println(a.length);		
-//			System.out.println(a.a.length);
-//			System.out.println(Arrays.toString(a.a));
-//			a.add(21);
-//			System.out.println(a.index);
-//			System.out.println(a.length);		
-//			System.out.println(a.a.length);
-//			System.out.println(Arrays.toString(a.a));
-//			a.prepend(-2);
-//			System.out.println(a.index);
-//			System.out.println(a.length);		
-//			System.out.println(a.a.length);
-//			System.out.println(Arrays.toString(a.a));
-//			a.add(22);
-//			System.out.println(a.index);
-//			System.out.println(a.length);		
-//			System.out.println(a.a.length);
-//			a.prepend(-3);
-//			a.add(23);
-//			a.prepend(-4);
-//			a.add(24);
-//			System.out.println(Arrays.toString(a.a));
-//			System.exit(0);
 			score += 10;
 			System.out.println("OK. Now alternating prepend and append with a bunch of values.");
 			for (int i = 0; i < 1000; i++) {
@@ -94,33 +61,28 @@ public class IntArrayTest {
 					a.add((i + 1) / 2 + 20);
 				}
 			}
-			
 			for (int i = 0; i < a.size(); i++) {
 				if (a.get(i) != -500 + i) {
 					throw new RuntimeException(
 							"Expected a.get(" + i + ") == " + (-500 + i) + " instead was " + a.get(i));
 				}
-			}			
-			
+			}
 			score += 10;
 			System.out.println("OK. Now running a speed test prepending and adding a million values.");
 			long start = System.currentTimeMillis();
 			for (int i = 0; i < 1000000; i++) {
 				a.prepend(-501 - i);
 			}
-			
 			for (int i = 0; i < a.size(); i++) {
 				if (a.get(i) != -1000500 + i) {
 					throw new RuntimeException(
 							"Expected a.get(" + i + ") == " + (-1000500 + i) + " instead was " + a.get(i));
 				}
 			}
-			
-			score += 15;			
+			score += 15;
 			for (int i = 0; i < 1000000; i++) {
 				a.add(521 + i);
 			}
-			
 			if (a.size() != 2001021) {
 				throw new RuntimeException("Size should now be 2001021, instead I got " + a.size());
 			}
@@ -130,7 +92,6 @@ public class IntArrayTest {
 							"Expected a.get(" + i + ") == " + (-1000500 + i) + " instead was " + a.get(i));
 				}
 			}
-			
 			score += 15;
 			for (int i = 0; i < a.size(); i++) {
 				a.set(i, a.size() - i);
