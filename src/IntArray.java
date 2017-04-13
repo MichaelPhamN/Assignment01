@@ -100,6 +100,7 @@ public class IntArray {
 		if (index <= 0) {
 			// Create new array of double the length.
 			int[] b = new int[length*2];
+			
 			index = length/2;
 			
 			// Copy the elements of a into their corresponding indexes of b.
@@ -112,10 +113,8 @@ public class IntArray {
 		
 		//decrease index by 1
 		index = index - 1;
+		
 		a[index] = x;
-//		System.out.println(Arrays.toString(a));
-		
-		
 		
 		// Increase length by 1
 		length = length + 1;

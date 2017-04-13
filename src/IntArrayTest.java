@@ -94,8 +94,7 @@ public class IntArrayTest {
 					a.add((i + 1) / 2 + 20);
 				}
 			}
-//			System.out.println(Arrays.toString(a.a));
-//			System.exit(0);
+			
 			for (int i = 0; i < a.size(); i++) {
 				if (a.get(i) != -500 + i) {
 					throw new RuntimeException(
@@ -116,10 +115,12 @@ public class IntArrayTest {
 							"Expected a.get(" + i + ") == " + (-1000500 + i) + " instead was " + a.get(i));
 				}
 			}
-			score += 15;
+			
+			score += 15;			
 			for (int i = 0; i < 1000000; i++) {
 				a.add(521 + i);
 			}
+			
 			if (a.size() != 2001021) {
 				throw new RuntimeException("Size should now be 2001021, instead I got " + a.size());
 			}
@@ -129,6 +130,7 @@ public class IntArrayTest {
 							"Expected a.get(" + i + ") == " + (-1000500 + i) + " instead was " + a.get(i));
 				}
 			}
+			
 			score += 15;
 			for (int i = 0; i < a.size(); i++) {
 				a.set(i, a.size() - i);
